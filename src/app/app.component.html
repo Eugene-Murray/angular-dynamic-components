@@ -1,9 +1,42 @@
-<p><b>1. ngComponentOutlet:</b> <ng-container *ngComponentOutlet="dynamicComponent"></ng-container></p>
-<div><b>2. viewContainer.createComponent:</b> 
-  <p><button (click)="onloadComponentViewContainer()">Load Component</button></p>
+
+<h2>Dynamic Component Loading</h2>
+<div class="container">
+<p>
+  <b>1. ngComponentOutlet:</b>
+  <ng-container *ngComponentOutlet="dynamicComponent"></ng-container>
+</p>
 </div>
-<div>
+<div class="container">
+  <b>2. viewContainer.createComponent:</b>
+  <p>
+    <button (click)="onloadComponentViewContainer()">Load Component</button>
+  </p>
+</div>
+<div class="container">
   <b>3. Lazy Loading Components - JavaScript's import() function:</b>
   <p><button (click)="onlazyLoadComponent()">Load Component</button></p>
   <ng-container *ngComponentOutlet="lazyLoadComponent"></ng-container>
+</div>
+<div class="container">
+  <b>4. The portal outlet is below:</b>
+  <div class="example-portal-outlet">
+    <ng-template [cdkPortalOutlet]="selectedPortal"></ng-template>
+  </div>
+  <ng-template #templatePortalContent
+    >Hello, this is a template portal</ng-template
+  >
+
+  <button (click)="selectedPortal = componentPortal">
+    Render component portal
+  </button>
+  <button (click)="selectedPortal = templatePortal">
+    Render template portal
+  </button>
+  <button (click)="selectedPortal = domPortal">Render DOM portal</button>
+
+  <div #domPortalContent>Hello, this is a DOM portal</div>
+</div>
+<div class="container">
+  <b>5. ng-dynamic-component:</b>
+  <ndc-dynamic [ndcDynamicComponent]="ndcDynamic"></ndc-dynamic>
 </div>
