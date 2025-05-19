@@ -33,6 +33,7 @@ export class AppComponent {
   lazyLoadComponent: any = null;
 
   private viewContainer = inject(ViewContainerRef);
+  private _viewContainerRef = inject(ViewContainerRef);
 
   @ViewChild('templatePortalContent') templatePortalContent:
     | TemplateRef<unknown>
@@ -59,7 +60,7 @@ export class AppComponent {
     this.lazyLoadComponent = Component3Component;
   }
 
-  private _viewContainerRef = inject(ViewContainerRef);
+  
 
   ngAfterViewInit() {
     this.componentPortal = new ComponentPortal(Component4Component);
